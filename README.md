@@ -19,15 +19,14 @@ UIView *nativeAdsView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, nativ
 [self.view addSubView:nativeAdsView];
 ```
 
-###B. ネイティブ広告を指定したビューに取得
+###B. ネイティブ広告を取得し配置
 
 ```objective-c
 CGFloat const nativeAdsWidth  = [[UIScreen mainScreen] bounds].size.width;
 CGFloat const nativeAdsHeight = 80.0;
 
-UIView *nativeAdsView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, nativeAdsWidth, nativeAdsHeight)];
-nativeAdsView = [[DCAdMobNativeAds sharedManager] nativeAd:self
-                                         frame:CGRectMake(0.0, 0.0, nativeAdsWidth, nativeAdsHeight)];
+UIView *nativeAdsView = [[DCAdMobNativeAds sharedManager] nativeAd:self
+                                                             frame:CGRectMake(0.0, 0.0, nativeAdsWidth, nativeAdsHeight)];
 [self.view addSubView:nativeAdsView];
 ```
 
