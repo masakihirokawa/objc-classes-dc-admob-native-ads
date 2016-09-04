@@ -14,7 +14,7 @@ CGFloat const nativeAdsWidth  = [[UIScreen mainScreen] bounds].size.width;
 CGFloat const nativeAdsHeight = 80.0;
 
 UIView *nativeAdsView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, nativeAdsWidth, nativeAdsHeight)];
-[[DCAdMobNativeAds sharedManager] showNativeAd:delegate targetView:nativeAdsView
+[[DCAdMobNativeAds sharedManager] showNativeAd:self targetView:nativeAdsView
                                          frame:CGRectMake(0.0, 0.0, nativeAdsWidth, nativeAdsHeight)];
 [self.view addSubView:nativeAdsView];
 ```
@@ -26,7 +26,7 @@ CGFloat const nativeAdsWidth  = [[UIScreen mainScreen] bounds].size.width;
 CGFloat const nativeAdsHeight = 80.0;
 
 UIView *nativeAdsView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, nativeAdsWidth, nativeAdsHeight)];
-nativeAdsView = [[DCAdMobNativeAds sharedManager] nativeAd:delegate
+nativeAdsView = [[DCAdMobNativeAds sharedManager] nativeAd:self
                                          frame:CGRectMake(0.0, 0.0, nativeAdsWidth, nativeAdsHeight)];
 [self.view addSubView:nativeAdsView];
 ```
@@ -42,6 +42,7 @@ iPhoneは 4-inch/ 4.7-inch/ 5.5-inch で横幅が異なりますので、今回�
 ネイティブ広告初期化の際、下記のように縦幅 80dp 以上のサイズを指定することで正常に表示されました。
 
 ```objective-c
-self.nativeExpressAdView = [[GADNativeExpressAdView alloc] initWithAdSize:GADAdSizeFromCGSize(CGSizeMake([[UIScreen mainScreen] bounds].size.width, 80.0))
+CGSize const nativeAdsSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width, 80.0);
+self.nativeExpressAdView = [[GADNativeExpressAdView alloc] initWithAdSize:GADAdSizeFromCGSize(nativeAdsSize)
                                                                        origin:CGPointMake(0.0, 0.0)];
 ```
